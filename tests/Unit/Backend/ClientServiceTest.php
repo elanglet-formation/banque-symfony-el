@@ -52,7 +52,7 @@ class ClientServiceTest extends TestCase
         $returnedClient = $this->clientService->rechercherClientParId(1);
         
         // Assertion : On vérifie que l'objet retourné est le même que celui attendu
-        $this->assertSame($client, $returnedClient);
+        $this->assertEquals($client, $returnedClient);
     }
     
     public function testAjouterClient(): void
