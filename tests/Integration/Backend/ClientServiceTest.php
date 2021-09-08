@@ -66,7 +66,9 @@ class ClientServiceTest extends KernelTestCase
     {
         $listeClients = $this->clientService->rechercherTousLesClients();
         
-        $this->assertEquals(2, count($listeClients));
+        // $this->assertEquals(2, count($listeClients));
+        
+        $this->assertCount(2, $listeClients);
     }
 
     public function testAjouterClient(): void
@@ -82,8 +84,10 @@ class ClientServiceTest extends KernelTestCase
         
         $this->clientService->ajouterClient($client);
         
-        $nombreClients = count($this->clientService->rechercherTousLesClients());
-        $this->assertEquals(3, $nombreClients);
+//         $nombreClients = count($this->clientService->rechercherTousLesClients());
+//         $this->assertEquals(3, $nombreClients);
+
+        $this->assertCount(3, $this->clientService->rechercherTousLesClients());
         
         $clientRecupere = $this->clientService->rechercherClientParId(3);
         $this->assertEquals($client, $clientRecupere);

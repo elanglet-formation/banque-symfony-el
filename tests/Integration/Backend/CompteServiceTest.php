@@ -64,7 +64,8 @@ class CompteServiceTest extends KernelTestCase
         $client = $this->clientService->rechercherClientParId(1);
         $listeComptes = $this->compteService->rechercherComptesClient($client);
         
-        $this->assertEquals(1, count($listeComptes));
+        // $this->assertEquals(1, count($listeComptes));
+        $this->assertCount(1, $listeComptes);
         
         foreach ($listeComptes as $cpt) {
             $this->assertEquals($client, $cpt->getClient());

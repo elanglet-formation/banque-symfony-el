@@ -78,12 +78,28 @@ class BanqueBusinessTest extends KernelTestCase
     public function testMesComptes(): void
     {
         $client = $this->clientService->rechercherClientParId(1);
-        $compte = new Compte();
-        $compte->setNumero(78954263);
-        $compte->setSolde('5000.00');
-        $compte->setClient($client);
         
-        $listeComptes = $this->banqueBusiness->mesComptes(1);
-        $this->assertEquals(1, count($listeComptes));
+        $listeComptes = $this->banqueBusiness->mesComptes($client->getId());
+        $this->assertCount(1, $listeComptes);
+        
+        foreach ($listeComptes as $cpt) {
+            $this->assertEquals($client, $cpt->getClient());
+        }        
+        
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
