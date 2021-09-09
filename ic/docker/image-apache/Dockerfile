@@ -13,8 +13,7 @@ COPY ./sources/httpd-foreground 	/usr/local/bin/
 COPY ./sources/000-default.conf 	/etc/apache2/sites-enabled/
 
 COPY ./app						/site/banque-symfony
-COPY ./sources/.env				/site/banque-symfony/
-COPY ./sources/.env.test		/site/banque-symfony/
+COPY ./sources/.env				/site/banque-symfony
 
 RUN chown -R www-data:www-data /site/banque-symfony/var && \
 	chmod -R +x /site/banque-symfony/var && \
