@@ -18,7 +18,7 @@ class CompteServiceTest extends KernelTestCase
     public static function setUpBeforeClass(): void
     {
         // Mise en place d'une connexion PDO pour la mise en place et le nettoyage de la base de test.
-        self::$cnx = new \PDO('mysql:host=localhost;port=3306;dbname=banquesf_test', 'banquesf', 'banquesf');
+        self::$cnx = new \PDO('mysql:host=localhost;port=3306;dbname=banquesf_test', 'root', '');
         // Pour lever des exceptions en cas de problèmes de connexion
         self::$cnx->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
     }
