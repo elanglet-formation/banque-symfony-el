@@ -20,9 +20,9 @@ SET time_zone = "+00:00";
 --
 -- Base de données : `banquesf`
 --
-DROP DATABASE IF EXISTS `banquesf_test`;
-CREATE DATABASE IF NOT EXISTS `banquesf_test` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
-USE `banquesf_test`;
+DROP DATABASE IF EXISTS `banquesf`;
+CREATE DATABASE IF NOT EXISTS `banquesf` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE `banquesf`;
 
 -- --------------------------------------------------------
 
@@ -84,3 +84,9 @@ COMMIT;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 
+
+
+CREATE USER 'banquesf'@'%' IDENTIFIED BY 'banquesf';
+GRANT USAGE ON *.* TO 'banquesf'@'%' REQUIRE NONE WITH MAX_QUERIES_PER_HOUR 0 MAX_CONNECTIONS_PER_HOUR 0 MAX_UPDATES_PER_HOUR 0 MAX_USER_CONNECTIONS 0; 
+GRANT ALL PRIVILEGES ON `banquesf`.* TO 'banquesf'@'%' WITH GRANT OPTION; 
+FLUSH PRIVILEGES;
