@@ -30,7 +30,7 @@ class Compte
     /**
      * @var \App\Entity\Client
      *
-     * @ORM\ManyToOne(targetEntity="Client")
+     * @ORM\ManyToOne(targetEntity="Client", fetch="EAGER")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="idclient", referencedColumnName="id")
      * })
